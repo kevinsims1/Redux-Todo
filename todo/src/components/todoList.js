@@ -9,31 +9,34 @@ class TodoList extends Component {
 
 
     handleChanges = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ newTodo: e.target.value });
       };
 
     addTodo = (e) => {
         e.preventDefault()
         console.log(this.props.todos, 'this IS TODO LIST')
-        this.props.addTodo(this.state.newTodos)
+        this.props.addTodo(this.state.newTodo);
+        this.setState({newTodo: ''})
     }
 
     render() {
         return (
-        <div> 
-            {this.props.todos.map(() => (
-                <div className="item">
-                {this.props.todos}
-                </div>
-            ))}
-        <input
+         <React.Fragment>
+             <div className="todoList">
+                 {this.props.todos.map(todo => (
+                 <h4>
+                     {todo.todo}
+                     {todo.completed}
+                 </h4>))}
+             </div>
+             <input
           type="text"
-          name="newTodos"
-          value={this.state.newTodos}
+          value={this.state.newTodo}
           onChange={this.handleChanges}
+          placeholder="Add new Todo"
         />
-        <button onClick={this.addTodo}>Update todos</button>
-      </div>
+        <button onClick={this.addTodo}>Add Todo</button>
+         </React.Fragment>
         );
     }
 }

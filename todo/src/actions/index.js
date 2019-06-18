@@ -1,6 +1,6 @@
-export const addTodo = NewTodos => {
+export const addTodo = newTodos => {
     return {
         type: 'ADD_TODO',
-        payload: NewTodos
+        payload: newTodos
     }
 }
