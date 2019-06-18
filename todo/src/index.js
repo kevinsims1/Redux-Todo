@@ -4,6 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { reducer } from './reducers'
 import TodoList from './components/todoList'
+import './App.css'
 
 const store = createStore(reducer)
 

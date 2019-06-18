@@ -4,3 +4,10 @@ export const addTodo = newTodos => {
         payload: newTodos
     }
 }
+
+export const toggleTodo = index => {
+    return {
+      type: 'TOGGLE_TODO',
+      payload: index
+    };
+  };
